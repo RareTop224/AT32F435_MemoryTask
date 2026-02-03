@@ -1,0 +1,11 @@
+-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c
+-fno-rtti -funsigned-char -fshort-enums -fshort-wchar
+-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Wall -Wextra -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier
+-I./RTE/Device/-AT32F435ZMT7
+-I./RTE/_Target_1
+-IC:/Users/butyl/AppData/Local/Arm/Packs/ARM/CMSIS/6.2.0/CMSIS/Core/Include
+-IC:/Users/butyl/AppData/Local/Arm/Packs/ARM/CMSIS/6.2.0/CMSIS/Driver/Include
+-IC:/Users/butyl/AppData/Local/Arm/Packs/ArteryTek/AT32F435_437_DFP/2.2.4/Device/Firmware/Peripherals/inc
+-IC:/Users/butyl/AppData/Local/Arm/Packs/ArteryTek/AT32F435_437_DFP/2.2.4/Device/Include
+-D__UVISION_VERSION="543" -DAT32F435ZMT7 -D_RTE_
+-o ./objects/main.o -MMD "main.c"
