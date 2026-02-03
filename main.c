@@ -19,9 +19,9 @@
 #define GPIOD_BSRR   (*(volatile uint32_t *)(GPIOD_BASE + 0x18))
 
 int main(){
-	RCC_AHB1ENR |= (1 << 3);
+	RCC_AHB1ENR |= (1 << 3);	// enable clocking
 	
-	GPIOD_MODER &= ~(3 << (13 * 2));   
+	GPIOD_MODER &= ~(3 << (13 * 2));  
   GPIOD_MODER |=  (1 << (13 * 2));   
 
 	GPIOD_OTYPER &= ~(1 << 13);
