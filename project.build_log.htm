@@ -22,17 +22,17 @@ Dialog DLL:      TCM.DLL V1.56.6.0
  
 <h2>Project:</h2>
 C:\Total_Prog\ArteryProject\AT32F435_MemoryTask\project.uvprojx
-Project File Date:  02/03/2026
+Project File Date:  02/05/2026
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.24', folder: 'C:\Users\butyl\AppData\Local\Keil_v5\ARM\ARMCLANG\Bin'
 Build target 'Target_1'
-RTE/Device/-AT32F435ZMT7/system_at32f435_437.c(34): warning: In file included from...
-C:/Users/butyl/AppData/Local/Arm/Packs/ArteryTek/AT32F435_437_DFP/2.2.4/Device/Include\at32f435_437.h(872): error: 'at32f435_437_def.h' file not found
-  872 | #include "at32f435_437_def.h"
-      |          ^~~~~~~~~~~~~~~~~~~~
+main.c(4): warning: In file included from...
+C:/Users/butyl/AppData/Local/Arm/Packs/ArteryTek/AT32F435_437_DFP/2.2.4/Device/Utilities\at32f435_437_board.h(58): error: "please select first the board at-start device used in your application (in at32f435_437_board.h file)"
+   58 | #error "please select first the board at-start device used in your application (in at32f435_437_board.h file)"
+      |  ^
 1 error generated.
-compiling system_at32f435_437.c...
+compiling main.c...
 ".\project.axf" - 1 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
@@ -48,10 +48,19 @@ Package Vendor: ArteryTek
                 ArteryTek::AT32F435_437_DFP@2.2.4
                 ArteryTek AT32F4 Series Device Support,Drivers
    * Component: Startup Version: 2.0.0
+   * Component: at32f435_437_conf Version: 2.0.0
+   * Component: crm Version: 2.0.0
+   * Component: exint Version: 2.0.0
+   * Component: gpio Version: 2.0.0
+   * Component: misc Version: 2.0.0
+   * Component: scfg Version: 2.0.0
+   * Component: usart Version: 2.0.0
 
 <h2>Collection of Component include folders:</h2>
+  ./RTE/Device/-AT32F435ZMT7
   ./RTE/_Target_1
   C:/Users/butyl/AppData/Local/Arm/Packs/ARM/CMSIS/6.2.0/CMSIS/Core/Include
+  C:/Users/butyl/AppData/Local/Arm/Packs/ArteryTek/AT32F435_437_DFP/2.2.4/Device/Firmware/Peripherals/inc
   C:/Users/butyl/AppData/Local/Arm/Packs/ArteryTek/AT32F435_437_DFP/2.2.4/Device/Include
 
 <h2>Collection of Component Files used:</h2>
@@ -59,9 +68,36 @@ Package Vendor: ArteryTek
    * Component: ARM::CMSIS:CORE@6.1.1
 
    * Component: ArteryTek::Device:Startup@2.0.0
+      Include file:  Device/Include/at32f435_437.h
       Source file:   Device/Source/system_at32f435_437.c
       Source file:   Device/Source/ARM/startup_at32f435_437.s
-      Include file:  Device/Include/at32f435_437.h
+
+   * Component: ArteryTek::Device:at32f435_437_conf@2.0.0
+      Include file:  Device/Include/at32f435_437_conf.h
+
+   * Component: ArteryTek::Device:at32f435_437_firmware_library:crm@2.0.0
+      Source file:   Device/Firmware/Peripherals/src/at32f435_437_crm.c
+      Include file:  Device/Firmware/Peripherals/inc/at32f435_437_crm.h
+
+   * Component: ArteryTek::Device:at32f435_437_firmware_library:exint@2.0.0
+      Source file:   Device/Firmware/Peripherals/src/at32f435_437_exint.c
+      Include file:  Device/Firmware/Peripherals/inc/at32f435_437_exint.h
+
+   * Component: ArteryTek::Device:at32f435_437_firmware_library:gpio@2.0.0
+      Include file:  Device/Firmware/Peripherals/inc/at32f435_437_gpio.h
+      Source file:   Device/Firmware/Peripherals/src/at32f435_437_gpio.c
+
+   * Component: ArteryTek::Device:at32f435_437_firmware_library:misc@2.0.0
+      Include file:  Device/Firmware/Peripherals/inc/at32f435_437_misc.h
+      Source file:   Device/Firmware/Peripherals/src/at32f435_437_misc.c
+
+   * Component: ArteryTek::Device:at32f435_437_firmware_library:scfg@2.0.0
+      Include file:  Device/Firmware/Peripherals/inc/at32f435_437_scfg.h
+      Source file:   Device/Firmware/Peripherals/src/at32f435_437_scfg.c
+
+   * Component: ArteryTek::Device:at32f435_437_firmware_library:usart@2.0.0
+      Source file:   Device/Firmware/Peripherals/src/at32f435_437_usart.c
+      Include file:  Device/Firmware/Peripherals/inc/at32f435_437_usart.h
 Target not created.
 Build Time Elapsed:  00:00:01
 </pre>

@@ -133,11 +133,11 @@
             <RunIndependent>0</RunIndependent>
             <UpdateFlashBeforeDebugging>1</UpdateFlashBeforeDebugging>
             <Capability>1</Capability>
-            <DriverSelection>-1</DriverSelection>
+            <DriverSelection>4096</DriverSelection>
           </Flash1>
           <bUseTDR>1</bUseTDR>
           <Flash2>BIN\UL2CM3.DLL</Flash2>
-          <Flash3></Flash3>
+          <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
           <pFcarmGrp></pFcarmGrp>
@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath></IncludePath>
+              <IncludePath>C:\Users\butyl\AppData\Local\Arm\Packs\ArteryTek\AT32F435_437_DFP\2.2.4\Device\Firmware\Peripherals\inc;C:\Users\butyl\AppData\Local\Arm\Packs\ArteryTek\AT32F435_437_DFP\2.2.4\Device\Utilities;C:\Users\butyl\AppData\Local\Arm\Packs\ArteryTek\AT32F435_437_DFP\2.2.4\Device\Include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -355,7 +355,7 @@
             <ClangAsOpt>1</ClangAsOpt>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>AT_START_F435</Define>
+              <Define></Define>
               <Undefine></Undefine>
               <IncludePath></IncludePath>
             </VariousControls>
@@ -425,6 +425,48 @@
           <targetInfo name="Target_1"/>
         </targetInfos>
       </component>
+      <component Cclass="Device" Cgroup="at32f435_437_conf" Cvendor="ArteryTek" Cversion="2.0.0" condition="AT32F435_437 CMSIS" ymlID="Device:at32f435_437_conf">
+        <package name="AT32F435_437_DFP" schemaVersion="1.2" url="" vendor="ArteryTek" version="2.2.4"/>
+        <targetInfos>
+          <targetInfo name="Target_1"/>
+        </targetInfos>
+      </component>
+      <component Cclass="Device" Cgroup="at32f435_437_firmware_library" Csub="crm" Cvendor="ArteryTek" Cversion="2.0.0" condition="AT32F435_437 STDPERIPHERALS MISC" ymlID="Device:at32f435_437_firmware_library:crm">
+        <package name="AT32F435_437_DFP" schemaVersion="1.2" url="" vendor="ArteryTek" version="2.2.4"/>
+        <targetInfos>
+          <targetInfo name="Target_1"/>
+        </targetInfos>
+      </component>
+      <component Cclass="Device" Cgroup="at32f435_437_firmware_library" Csub="exint" Cvendor="ArteryTek" Cversion="2.0.0" condition="AT32F435_437 STDPERIPHERALS CRM" ymlID="Device:at32f435_437_firmware_library:exint">
+        <package name="AT32F435_437_DFP" schemaVersion="1.2" url="" vendor="ArteryTek" version="2.2.4"/>
+        <targetInfos>
+          <targetInfo name="Target_1"/>
+        </targetInfos>
+      </component>
+      <component Cclass="Device" Cgroup="at32f435_437_firmware_library" Csub="gpio" Cvendor="ArteryTek" Cversion="2.0.0" condition="AT32F435_437 STDPERIPHERALS CRM" ymlID="Device:at32f435_437_firmware_library:gpio">
+        <package name="AT32F435_437_DFP" schemaVersion="1.2" url="" vendor="ArteryTek" version="2.2.4"/>
+        <targetInfos>
+          <targetInfo name="Target_1"/>
+        </targetInfos>
+      </component>
+      <component Cclass="Device" Cgroup="at32f435_437_firmware_library" Csub="misc" Cvendor="ArteryTek" Cversion="2.0.0" condition="AT32F435_437 CMSIS" ymlID="Device:at32f435_437_firmware_library:misc">
+        <package name="AT32F435_437_DFP" schemaVersion="1.2" url="" vendor="ArteryTek" version="2.2.4"/>
+        <targetInfos>
+          <targetInfo name="Target_1"/>
+        </targetInfos>
+      </component>
+      <component Cclass="Device" Cgroup="at32f435_437_firmware_library" Csub="scfg" Cvendor="ArteryTek" Cversion="2.0.0" condition="AT32F435_437 STDPERIPHERALS CRM" ymlID="Device:at32f435_437_firmware_library:scfg">
+        <package name="AT32F435_437_DFP" schemaVersion="1.2" url="" vendor="ArteryTek" version="2.2.4"/>
+        <targetInfos>
+          <targetInfo name="Target_1"/>
+        </targetInfos>
+      </component>
+      <component Cclass="Device" Cgroup="at32f435_437_firmware_library" Csub="usart" Cvendor="ArteryTek" Cversion="2.0.0" condition="AT32F435_437 STDPERIPHERALS CRM" ymlID="Device:at32f435_437_firmware_library:usart">
+        <package name="AT32F435_437_DFP" schemaVersion="1.2" url="" vendor="ArteryTek" version="2.2.4"/>
+        <targetInfos>
+          <targetInfo name="Target_1"/>
+        </targetInfos>
+      </component>
     </components>
     <files>
       <file attr="config" category="source" name="Device\Utilities\at32f435_437_board.c" version="2.0.0">
@@ -434,16 +476,60 @@
         <targetInfos/>
       </file>
       <file attr="config" category="header" name="Device\Include\at32f435_437_conf.h" version="2.0.0">
-        <instance index="0" removed="1">RTE\Device\-AT32F435ZMT7\at32f435_437_conf.h</instance>
+        <instance index="0">RTE\Device\-AT32F435ZMT7\at32f435_437_conf.h</instance>
         <component Cclass="Device" Cgroup="at32f435_437_conf" Cvendor="ArteryTek" Cversion="2.0.0" condition="AT32F435_437 CMSIS"/>
         <package name="AT32F435_437_DFP" schemaVersion="1.2" url="" vendor="ArteryTek" version="2.2.4"/>
-        <targetInfos/>
+        <targetInfos>
+          <targetInfo name="Target_1"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="source" name="Device\Firmware\Peripherals\src\at32f435_437_crm.c" version="2.0.0">
+        <instance index="0">RTE\Device\-AT32F435ZMT7\at32f435_437_crm.c</instance>
+        <component Cclass="Device" Cgroup="at32f435_437_firmware_library" Csub="crm" Cvendor="ArteryTek" Cversion="2.0.0" condition="AT32F435_437 STDPERIPHERALS MISC"/>
+        <package name="AT32F435_437_DFP" schemaVersion="1.2" url="" vendor="ArteryTek" version="2.2.4"/>
+        <targetInfos>
+          <targetInfo name="Target_1"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="source" name="Device\Firmware\Peripherals\src\at32f435_437_exint.c" version="2.0.0">
+        <instance index="0">RTE\Device\-AT32F435ZMT7\at32f435_437_exint.c</instance>
+        <component Cclass="Device" Cgroup="at32f435_437_firmware_library" Csub="exint" Cvendor="ArteryTek" Cversion="2.0.0" condition="AT32F435_437 STDPERIPHERALS CRM"/>
+        <package name="AT32F435_437_DFP" schemaVersion="1.2" url="" vendor="ArteryTek" version="2.2.4"/>
+        <targetInfos>
+          <targetInfo name="Target_1"/>
+        </targetInfos>
       </file>
       <file attr="config" category="source" name="Device\Firmware\Peripherals\src\at32f435_437_gpio.c" version="2.0.0">
-        <instance index="0" removed="1">RTE\Device\-AT32F435ZMT7\at32f435_437_gpio.c</instance>
+        <instance index="0">RTE\Device\-AT32F435ZMT7\at32f435_437_gpio.c</instance>
         <component Cclass="Device" Cgroup="at32f435_437_firmware_library" Csub="gpio" Cvendor="ArteryTek" Cversion="2.0.0" condition="AT32F435_437 STDPERIPHERALS CRM"/>
         <package name="AT32F435_437_DFP" schemaVersion="1.2" url="" vendor="ArteryTek" version="2.2.4"/>
-        <targetInfos/>
+        <targetInfos>
+          <targetInfo name="Target_1"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="source" name="Device\Firmware\Peripherals\src\at32f435_437_misc.c" version="2.0.0">
+        <instance index="0">RTE\Device\-AT32F435ZMT7\at32f435_437_misc.c</instance>
+        <component Cclass="Device" Cgroup="at32f435_437_firmware_library" Csub="misc" Cvendor="ArteryTek" Cversion="2.0.0" condition="AT32F435_437 CMSIS"/>
+        <package name="AT32F435_437_DFP" schemaVersion="1.2" url="" vendor="ArteryTek" version="2.2.4"/>
+        <targetInfos>
+          <targetInfo name="Target_1"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="source" name="Device\Firmware\Peripherals\src\at32f435_437_scfg.c" version="2.0.0">
+        <instance index="0">RTE\Device\-AT32F435ZMT7\at32f435_437_scfg.c</instance>
+        <component Cclass="Device" Cgroup="at32f435_437_firmware_library" Csub="scfg" Cvendor="ArteryTek" Cversion="2.0.0" condition="AT32F435_437 STDPERIPHERALS CRM"/>
+        <package name="AT32F435_437_DFP" schemaVersion="1.2" url="" vendor="ArteryTek" version="2.2.4"/>
+        <targetInfos>
+          <targetInfo name="Target_1"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="source" name="Device\Firmware\Peripherals\src\at32f435_437_usart.c" version="2.0.0">
+        <instance index="0">RTE\Device\-AT32F435ZMT7\at32f435_437_usart.c</instance>
+        <component Cclass="Device" Cgroup="at32f435_437_firmware_library" Csub="usart" Cvendor="ArteryTek" Cversion="2.0.0" condition="AT32F435_437 STDPERIPHERALS CRM"/>
+        <package name="AT32F435_437_DFP" schemaVersion="1.2" url="" vendor="ArteryTek" version="2.2.4"/>
+        <targetInfos>
+          <targetInfo name="Target_1"/>
+        </targetInfos>
       </file>
       <file attr="config" category="source" condition="AT32F435xx ARMCC" name="Device\Source\ARM\startup_at32f435_437.s" version="2.0.0">
         <instance index="0">RTE\Device\-AT32F435ZMT7\startup_at32f435_437.s</instance>

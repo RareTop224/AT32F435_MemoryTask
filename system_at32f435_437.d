@@ -1,9 +1,8 @@
-./main.o: main.c \
-  C:\Users\butyl\AppData\Local\Arm\Packs\ArteryTek\AT32F435_437_DFP\2.2.4\Device\Include\system_at32f435_437.h \
-  C:\Users\butyl\AppData\Local\Arm\Packs\ArteryTek\AT32F435_437_DFP\2.2.4\Device\Utilities\at32f435_437_board.h \
+./system_at32f435_437.o: RTE\Device\-AT32F435ZMT7\system_at32f435_437.c \
   C:\Users\butyl\AppData\Local\Arm\Packs\ArteryTek\AT32F435_437_DFP\2.2.4\Device\Include\at32f435_437.h \
   RTE\_Target_1\RTE_Components.h \
   C:\Users\butyl\AppData\Local\Arm\Packs\ARM\CMSIS\6.2.0\CMSIS\Core\Include\core_cm4.h \
+  C:\Users\butyl\AppData\Local\Arm\Packs\ArteryTek\AT32F435_437_DFP\2.2.4\Device\Include\system_at32f435_437.h \
   C:\Users\butyl\AppData\Local\Arm\Packs\ArteryTek\AT32F435_437_DFP\2.2.4\Device\Firmware\Peripherals\inc\at32f435_437_def.h \
   C:\Users\butyl\AppData\Local\Arm\Packs\ArteryTek\AT32F435_437_DFP\2.2.4\Device\Include\at32f435_437_conf.h \
   C:\Users\butyl\AppData\Local\Arm\Packs\ArteryTek\AT32F435_437_DFP\2.2.4\Device\Firmware\Peripherals\inc\at32f435_437_crm.h \
