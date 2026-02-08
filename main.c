@@ -1,7 +1,10 @@
 #include <stdio.h>
 #include <stdint.h>
 #include "system_at32f435_437.h"
-#include "at32f435_437_board.h"
+// #include "at32f435_437_board.h"
+
+extern void (*program2)();
+extern int (*main_func)();
 
 #define PERIPH_BASE_ADDRESS  0x40000000UL
 #define AHB1_BASE  (PERIPH_BASE_ADDRESS + 0x00020000UL)
@@ -22,22 +25,27 @@
 #define GPIOD_SCR (*(volatile uint32_t *)(GPIOD_BASE_ADDRESS + 0x18))		// gpio set/clear bit
 	
 
+void blink_led(void){
+	GPIOD_SCR = (1 << 13);
+	for (volatile int i = 0; i < 50000000; i++);
+	//delay_ms(500);
+		
+	GPIOD_SCR = (1 << (13 + 16));
+	for (volatile int i = 0; i < 50000000; i++);
+}
 
-int main(){
+int main(void){
+	printf("Main program\n");
 	RCC_AHB1ENR |= (1 << 3);	// enable clocking for pin D
 	
 	GPIOD_CFGR &= ~(3 << (13 * 2));  
 	GPIOD_CFGR |=  (1 << (13 * 2));	// PD13 output 
 	
-	// GPIOD_OSPEEDR &= ~(3 << (13 * 2)); 
-	// GPIOD_PUPDR &= ~(3 << (13 * 2));
+	GPIOD_SCR = (1 << 13);
 	
-	while (1)
-	{
-		GPIOD_SCR = (1 << 13);
-		delay_ms(500);
-			
-		GPIOD_SCR = (1 << (13 + 16));
-		delay_ms(500);
+	while (1){
+		blink_led();
 	}
 }
+
+int (*main_func)() = main;
