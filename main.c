@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdint.h>
 #include "system_at32f435_437.h"
-// #include "at32f435_437_board.h"
+#include "at32f435_437_board.c"
 
 extern void (*program2)();
 extern int (*main_func)();
@@ -16,22 +16,16 @@ extern int (*main_func)();
 
 // config gpio
 #define GPIOD_BASE_ADDRESS (AHB1_BASE + 0x0C00UL)	
-
 #define GPIOD_CFGR (*(volatile uint32_t *)(GPIOD_BASE_ADDRESS + 0x00))		// gpio mode configuration
-// #define GPIOD_MODER (*(volatile uint32_t *)(GPIOD_BASE + 0x04))
-// #define GPIOD_OSPEEDR (*(volatile uint32_t *)(GPIOD_BASE + 0x08))
-// #define GPIOD_PUPDR (*(volatile uint32_t *)(GPIOD_BASE + 0x0C))
 #define GPIOD_ODT (*(volatile uint32_t *)(GPIOD_BASE_ADDRESS + 0x14))		// the output status of I/O port.
 #define GPIOD_SCR (*(volatile uint32_t *)(GPIOD_BASE_ADDRESS + 0x18))		// gpio set/clear bit
 	
-
 void blink_led(void){
 	GPIOD_SCR = (1 << 13);
-	for (volatile int i = 0; i < 50000000; i++);
-	//delay_ms(500);
+	delay_ms(500);
 		
 	GPIOD_SCR = (1 << (13 + 16));
-	for (volatile int i = 0; i < 50000000; i++);
+	delay_ms(500);
 }
 
 int main(void){
