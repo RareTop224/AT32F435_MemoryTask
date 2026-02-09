@@ -2,9 +2,7 @@ ENTRY(entry_program3)
 
 MEMORY {                                             
   code (rx) : ORIGIN = 0x10050000, LENGTH = 0x10000
-  sram  (rx) : ORIGIN = 0x20040000, LENGTH = 0x20000
-  peripherals (rx) : ORIGIN = 0x40012000, LENGTH = 0x1000
-
+  sram  (rwx) : ORIGIN = 0x20040000, LENGTH = 0x20000
 }
 
 SECTIONS {
@@ -15,5 +13,9 @@ SECTIONS {
 
   .data : ALIGN(4) {
     *(.data*)
+  } > sram
+
+  .bss : ALIGN(4) {
+    *(.bss*)
   } > sram
 }
