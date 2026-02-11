@@ -1,0 +1,39 @@
+ENTRY(app_2)
+
+MEMORY {                                                /*?????? ??????? ?? ??????? */
+  iram (rx) : ORIGIN = 0x400C2000, LENGTH = 0x500     /*0x400C_2000*/
+  iram_rodata(r) : ORIGIN = 0x400C2500, LENGTH = 0x500
+  dram_data (rw) : ORIGIN = 0x3FFF0000, LENGTH = 0x500     /*0x3F80_0000*/
+  dram_bss (rw) : ORIGIN = 0x3FFF0500, LENGTH = 0x500
+  dram_stack (rw) : ORIGIN = 0x3FFF0A00, LENGTH = 0x500
+  dram_heap (rw) : ORIGIN = 0x3FFF0F00, LENGTH = 0x500
+}
+
+PROVIDE (esp_rom_delay_us = 0x40000088);
+PROVIDE(programEntry3 = 0x400A0000);
+PROVIDE(bootloader = 0x40080000);
+
+SECTIONS {
+  .text : ALIGN(4) {
+    *(.literal*) 
+    *(.text*)
+  } > iram
+
+  .rodata : ALIGN(4) {
+    *(.rodata*)
+  } > iram_rodata
+
+  .data : ALIGN(4) {
+    *(.data*)
+  } > dram_data
+
+  .bss : ALIGN(4) {
+    *(.bss*)
+  } > dram_bss  
+  
+}
+
+
+__stack_start = ORIGIN(dram_stack) + LENGTH(dram_stack);
+
+/* ??? dram_heap */

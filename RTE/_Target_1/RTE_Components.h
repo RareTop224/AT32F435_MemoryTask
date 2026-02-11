@@ -17,14 +17,10 @@
 
 /* ArteryTek::Device:at32f435_437_firmware_library:crm@2.0.0 */
 #define RTE_DEVICE_STDPERIPHERALS_CRM
-/* ArteryTek::Device:at32f435_437_firmware_library:exint@2.0.0 */
-#define RTE_DEVICE_STDPERIPHERALS_EXINT
 /* ArteryTek::Device:at32f435_437_firmware_library:gpio@2.0.0 */
 #define RTE_DEVICE_STDPERIPHERALS_GPIO
 /* ArteryTek::Device:at32f435_437_firmware_library:misc@2.0.0 */
 #define RTE_DEVICE_STDPERIPHERALS_MISC
-/* ArteryTek::Device:at32f435_437_firmware_library:scfg@2.0.0 */
-#define RTE_DEVICE_STDPERIPHERALS_SCFG
 /* ArteryTek::Device:at32f435_437_firmware_library:usart@2.0.0 */
 #define RTE_DEVICE_STDPERIPHERALS_USART
 
