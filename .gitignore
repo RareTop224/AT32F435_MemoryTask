@@ -1,0 +1,6 @@
+*.o
+*.d
+*.map
+*.uvoptx
+*.uvprojx
+*.dep
