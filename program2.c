@@ -3,7 +3,6 @@
 #include "at32f435_437_board.h"
 #include "at32f435_437_clock.h"
 
-extern void (*program2)();
 extern void (*program3)();
 extern void (*main_func)();
 
@@ -34,11 +33,13 @@ void entry_program2(){
 				delay_ms(1);
 			}
 			
-			if(timer >= 1000){
+			if(timer >= 1500){
 				// entry program3
+				program3();
 			}
 			else {
 				// entry main
+				main_func();
 			}
 		}
 	}
