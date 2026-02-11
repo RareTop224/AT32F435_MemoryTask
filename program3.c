@@ -20,6 +20,11 @@ extern void (*main_func)();
 void entry_program3(){
 	printf("Testing transition in program3\n");
 	
+	RCC_AHB1ENR |= 1 << 2 ;
+	
+	GPIOC_CFGR |= (1 << 13);		
+	GPIOC_PUDR |= (2 << 13);
+	
 	while(1){
 		printf("Working");
 		uint16_t timer = 0;
@@ -31,7 +36,7 @@ void entry_program3(){
 			}
 			
 			if(timer >= 1500){
-				// entry program3
+				// entry program2
 				program2();
 			}
 			else {
