@@ -9,9 +9,11 @@ extern int (*main_func)();
 
 typedef struct {
 	volatile uint32_t CFGR;		// gpio mode configuration
-	volatile uint32_t ODT;	// the output status of I/O port.
-	volatile uint32_t IDT;	// input data
+	volatile uint32_t OMODER;
+	volatile uint32_t ODRVR;
 	volatile uint32_t PULL;		// pull-up/down
+	volatile uint32_t IDT;	// input data
+	volatile uint32_t ODT;	// the output status of I/O port
 	volatile uint32_t SCR;		// gpio set/clear bit
 } GPIO_TypeDef;
 
