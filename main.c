@@ -40,6 +40,22 @@ typedef struct{
 #define button ((GPIO_TypeDef *) GPIOD_BASE_ADDRESS)
 #define usart_print ((USART_TypeDef *) USART_ADDRESS)
 
+#define PROGRAM2_ADDR 0x08008000
+
+void jump_program(void){
+	uint32_t sp = *(uint32_t*)PROGRAM2_ADDR;
+  uint32_t reset = *(uint32_t*)(PROGRAM2_ADDR + 4);
+	
+	void (*program_reset)(void);
+	
+	__set_MSP(sp); //set stack
+	
+	SCB->VTOR = PROGRAM2_ADDR;
+	
+	program_reset = (void*)reset;
+  program_reset();
+}
+
 void blink_led(void){
 	
 	LED->SCR = (1 << 13);
