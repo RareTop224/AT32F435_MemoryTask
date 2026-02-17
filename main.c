@@ -28,7 +28,7 @@ typedef struct{
 } USART_TypeDef;
 
 #define RCC_AHB1ENR 	(*(volatile uint32_t *)(0x40023830))
-// #define RCC_APB2ENR		(*(volatile uint32_t *)(0x40010044))
+#define RCC_APB2ENR		(*(volatile uint32_t *)(0x40010044))
 
 #define PERIPHERY_BASE 	0x40000000
 
@@ -55,8 +55,12 @@ int main(void){
 	//printf("Main program\n");
 	RCC_AHB1ENR |= (1 << 3);	// enable clocking GPIOD
 	RCC_AHB1ENR |= (1 << 0);	// enable clocking GPIOA
-	usart_print->USART_CTRL1 |= (1 << 4);		// enable USART
-
+	RCC_APB2ENR |= (1 << 4);	// enalbe clocking USART1
+	
+	usart_print->USART_CTRL1 |= (1 << 4);		// enable T
+	usart_print->USART_CTRL1 |= (1 << 3); 	// enable R
+	usart_print->USART_CTRL1  |= (1 << 13);	// enable USART
+	
 	LED->CFGR &= ~(3 << (13 * 2)); 
 	LED->CFGR |= (1 << (13 * 2));	// PD13 output 
 	
