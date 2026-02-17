@@ -16,6 +16,13 @@ extern void (*main_func)();
 #define GPIOC_PUDR (*(volatile uint32_t *)(GPIOC_BASE_ADDRESS + 0x0C)) // pull-up/down
 #define GPIOC_IDR (*(volatile uint32_t *)(GPIOC_BASE_ADDRESS + 0x10))		// input data
 
+
+__attribute__((section(".isr_vector")))
+const uint32_t vector_table[] = {
+    0x20020000,   // initial stack
+    //(uint32_t)Reset_Handler
+};
+
 void entry_program2(){	
 	printf("Testing transition in program2\n");
 	
