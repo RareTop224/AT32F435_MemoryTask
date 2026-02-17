@@ -51,6 +51,20 @@ void blink_led(void){
 	//delay_ms(500);
 }
 
+void send_char(char c){
+	//while (usart_print->USART_STS & (0 << 7))
+	usart_print->USART_DT = c;
+}
+
+void print(char *string){
+	int i = 0;
+	
+	while(*string){
+		send_char(string[i]);
+		i++;
+	}
+}
+
 int main(void){
 	//printf("Main program\n");
 	RCC_AHB1ENR |= (1 << 3);	// enable clocking GPIOD
