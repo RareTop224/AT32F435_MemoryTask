@@ -1,11 +1,20 @@
 #include <stdio.h>
 #include <stdint.h>
+
+#define AT32F435ZMT7
+
 #include "system_at32f435_437.h"
-#include "at32f435_437_board.h"
-#include "at32f435_437_clock.h"
+//#include "at32f435_437_board.h"
+//#include "at32f435_437_clock.h"
+#include "at32f435_437.h"
 
 extern void (*program2)();
 extern int (*main_func)();
+
+// symbol entry point
+extern uint32_t __app_start__;
+
+uint32_t app_addr = (uint32_t)&__app_start__;
 
 typedef struct {
 	volatile uint32_t CFGR;		// gpio mode configuration
@@ -43,28 +52,32 @@ typedef struct{
 #define PROGRAM2_ADDR 0x08008000
 
 void jump_program(void){
+	__disable_irq();
+	
 	uint32_t sp = *(uint32_t*)PROGRAM2_ADDR;
   uint32_t reset = *(uint32_t*)(PROGRAM2_ADDR + 4);
 	
-	void (*program_reset)(void);
+	//void (*program_reset)(void);
 	
 	__set_MSP(sp); //set stack
 	
 	SCB->VTOR = PROGRAM2_ADDR;
 	
-	program_reset = (void*)reset;
-  program_reset();
+	void (*app_reset_handler)(void) = (void*)reset;
+  app_reset_handler();
+
 }
 
-void blink_led(void){
-	
-	LED->SCR = (1 << 13);
-	for (volatile int i=0; i<5000; i++){}
-	//delay_ms(500);
-		
-	LED->SCR  = (1 << (13 + 16));
-	for (volatile int i=0; i<5000; i++){}
-	//delay_ms(500);
+static void blink_led(void){
+	for(int i = 0; i < 3; i++){
+		LED->SCR = (1 << 13);
+		for (volatile int i=0; i<50000; i++){}
+		//delay_ms(500);
+			
+		LED->SCR  = (1 << (13 + 16));
+		for (volatile int i=0; i<50000; i++){}
+		//delay_ms(500);
+	}
 }
 
 void send_char(char c){
@@ -96,6 +109,7 @@ int main(void){
 	
 	while (1){
 		blink_led();
+		jump_program();
 	}
 }
 
